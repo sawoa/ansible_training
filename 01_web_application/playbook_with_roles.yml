@@ -1,12 +1,7 @@
 # vim:ft=ansible:
-- name: Deploy a web application
-  hosts: db_and_web_servers
-  tasks:
-        - name: Install all Dependancies
-          apt: 
-                name: ['inetutils-ping','python','python-setuptools','python-dev','build-essential','python-pip','python-mysqldb'] 
-                state: present 
-                update-cache: yes
-
-        - include: tasks/deploy_db.yml
-        - include: tasks/deploy_web.yml
+ - name: Deploy a web application
+   hosts: db_and_web_servers
+   roles:
+    - python
+    - mysql_db
+    - flask_web

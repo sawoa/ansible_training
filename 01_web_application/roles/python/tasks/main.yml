@@ -1,0 +1,7 @@
+     - name: Install all Dependancies
+       apt:
+        name: ['inetutils-ping','python','python-setuptools','python-dev','build-essential','python-pip','python-mysqldb']
+        state: present
+        update-cache: yes
+
+
