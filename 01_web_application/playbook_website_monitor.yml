@@ -1,0 +1,14 @@
+# vim:ft=ansible:
+# Ansible playbook to monitor web and db server
+- name: Monitor web application
+  hosts: db_and_web_servers
+  tasks:
+	- command: /opt/monitor_webapp.py
+	  async: 360
+	  pool: 0
+	  register: webapp_result
+	
+	- command: /opt/monitor_database.py
+	  async: 360
+	  pool: 0
+	  register: database_result
