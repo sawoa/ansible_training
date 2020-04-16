@@ -15,7 +15,7 @@
    - debug:
         msg: "This is my debug message! {JINJA 2 templates) "
    - mail:
-        to: adam.sawoszczuk@gmail.com
+        to: <mail>@gmail.com
         subject: Server Deployed!
         body: Web Server Deployed
       #Ignore errors on this task. (No need to failed exec if mail wont go out)
