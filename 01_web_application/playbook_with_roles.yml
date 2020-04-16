@@ -1,7 +1,22 @@
 # vim:ft=ansible:
+#Roles playbook with strategy (free / batch)
  - name: Deploy a web application
    hosts: db_and_web_servers
+   #serial: 3 
+   #3 serwery naraz
+   strategy: free
+   #Błąd na dowolnym serwerze stopuje wykonanie całości
+   any_errors_fatal: true
    roles:
     - python
     - mysql_db
     - flask_web
+   tasks:
+   - debug:
+        msg: "This is my debug message! {JINJA 2 temlpates) "
+   - mail:
+        to: adam.sawoszczuk@gmail.com
+        subject: Server Deployed!
+        body: Web Server Deployed
+      #Ignore errors on this task. (No need to failed exec if mail wont go out)
+     ignore_errors: yes

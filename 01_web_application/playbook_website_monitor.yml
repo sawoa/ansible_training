@@ -12,3 +12,9 @@
 	  async: 360
 	  pool: 0
 	  register: database_result
+	
+	- name: Check status of tasks
+	  async_status: jid={{ webapp_result.ansible_job_id }}
+	  register: job_result
+	  until: job_result.finished
+	  retries: 30

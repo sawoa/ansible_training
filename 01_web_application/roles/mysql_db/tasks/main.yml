@@ -21,6 +21,8 @@
         failed_when: "'stopped' in mysql_status.stdout"
         changed_when: False
 
+      - pause:
+              minutes: 1
       - name: Create Application Database
         mysql_db:
               name: "{{ db_name }}"
